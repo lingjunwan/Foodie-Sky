@@ -63,6 +63,7 @@ public class OrderController {
         orderService.confirm(ordersConfirmDTO);
         return Result.success();
     }
+
     /**
      * Reject Order
      *
@@ -84,6 +85,30 @@ public class OrderController {
     @ApiOperation("Cancel Order")
     public Result cancel(@RequestBody OrdersCancelDTO ordersCancelDTO) throws Exception {
         orderService.cancel(ordersCancelDTO);
+        return Result.success();
+    }
+
+    /**
+     * Order Delivery
+     *
+     * @return
+     */
+    @PutMapping("/delivery/{id}")
+    @ApiOperation("Order Delivery")
+    public Result delivery(@PathVariable("id") Long id) {
+        orderService.delivery(id);
+        return Result.success();
+    }
+
+    /**
+     * Complete Order
+     *
+     * @return
+     */
+    @PutMapping("/complete/{id}")
+    @ApiOperation("Complete Order")
+    public Result complete(@PathVariable("id") Long id) {
+        orderService.complete(id);
         return Result.success();
     }
 }

@@ -9,6 +9,12 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface OrderMapper {
     /**
+     * Modify Order Information
+     * @param orders
+     */
+    void update(Orders orders);
+
+    /**
      * Pagination condition query and sort by order time
      * @param ordersPageQueryDTO
      */
@@ -21,11 +27,6 @@ public interface OrderMapper {
     @Select("select * from orders where id=#{id}")
     Orders getById(Long id);
 
-    /**
-     * Modify Order Information
-     * @param orders
-     */
-    void update(Orders orders);
 
 }
 
